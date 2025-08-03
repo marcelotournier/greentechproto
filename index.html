@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTech - Curando a Floresta Amazônica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-pattern {
+            background-color: #fdfaf5;
+            background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #fdfaf5 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            opacity: 0.05;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        .tab-active {
+            border-color: #166534;
+            color: #166534;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            border-color: transparent;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-[#fdfaf5] text-gray-800 antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-800">GreenTech</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#problema" class="text-gray-600 hover:text-green-800 transition">O Problema</a>
+                <a href="#solucao" class="text-gray-600 hover:text-green-800 transition">A Solução</a>
+                <a href="#plataforma" class="text-gray-600 hover:text-green-800 transition">Plataforma</a>
+                <a href="#diferenciais" class="text-gray-600 hover:text-green-800 transition">Diferenciais</a>
+                <a href="#contato" class="bg-green-700 text-white px-4 py-2 rounded-full hover:bg-green-800 transition">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#problema" class="block py-2 text-gray-600 hover:text-green-800">O Problema</a>
+            <a href="#solucao" class="block py-2 text-gray-600 hover:text-green-800">A Solução</a>
+            <a href="#plataforma" class="block py-2 text-gray-600 hover:text-green-800">Plataforma</a>
+            <a href="#diferenciais" class="block py-2 text-gray-600 hover:text-green-800">Diferenciais</a>
+            <a href="#contato" class="block mt-2 bg-green-700 text-white px-4 py-2 rounded-full hover:bg-green-800">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center pt-20 overflow-hidden">
+            <div class="bg-pattern"></div>
+            <div class="container mx-auto px-6 z-10">
+                <h1 class="text-4xl md:text-7xl font-bold text-green-900 leading-tight">
+                    To Heal The Amazon Rainforest
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossa missão é conectar o ecossistema global de créditos de carbono a projetos de impacto na Amazônia, com transparência, segurança e lucro social.
+                </p>
+                <div class="mt-10">
+                    <a href="#solucao" class="bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-800 transition transform hover:scale-105">Descubra a Solução</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="problema" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">As Barreiras do Mercado de Carbono</h2>
+                    <p class="mt-4 text-lg text-gray-600">O mercado voluntário de carbono, apesar do seu potencial, é um campo minado de desafios.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-green-800 mb-3">Complexidade e Opacidade</h3>
+                        <p class="text-gray-600">Processos complicados e falta de clareza sobre a origem e qualidade dos créditos dificultam a tomada de decisão.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-green-800 mb-3">Custos Elevados</h3>
+                        <p class="text-gray-600">Uma cadeia de valor fragmentada com muitos intermediários inflaciona os custos e reduz o impacto final.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-green-800 mb-3">Risco de Greenwashing</h3>
+                        <p class="text-gray-600">A falta de rastreabilidade expõe empresas a riscos de reputação, com créditos de legitimidade duvidosa.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition">
+                        <h3 class="text-xl font-bold text-green-800 mb-3">Exclusão de Produtores</h3>
+                        <p class="text-gray-600">Pequenos produtores e comunidades locais, essenciais para a conservação, são deixados de fora do mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucao" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800">A Solução: O Ecossistema GreenTech</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Atuamos como facilitadora, educadora e garantidora, conectando as pontas da cadeia de valor com tecnologia e confiança.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-between items-start text-center md:flex-nowrap overflow-x-auto whitespace-nowrap py-4">
+                    <div class="flex-none w-full md:w-auto p-2">
+                        <span class="text-6xl block">🌳</span>
+                        <h4 class="mt-2 text-lg font-semibold">Projetos na Amazônia</h4>
+                        <p class="text-sm text-gray-600 max-w-xs mx-auto">Originação de créditos em projetos de conservação com comunidades locais.</p>
+                    </div>
+                    <div class="flex-shrink-0 text-4xl text-gray-300 font-light flex items-center justify-center h-full px-2">→</div>
+                    <div class="flex-none w-full md:w-auto p-2">
+                        <span class="text-6xl block">⛓️</span>
+                        <h4 class="mt-2 text-lg font-semibold">Verificação & Tokenização</h4>
+                        <p class="text-sm text-gray-600 max-w-xs mx-auto">Nossa tecnologia valida e transforma créditos em ativos digitais seguros em blockchain.</p>
+                    </div>
+                    <div class="flex-shrink-0 text-4xl text-gray-300 font-light flex items-center justify-center h-full px-2">→</div>
+                    <div class="flex-none w-full md:w-auto p-2">
+                        <span class="text-6xl block">🛒</span>
+                        <h4 class="mt-2 text-lg font-semibold">Plataforma GreenTech</h4>
+                        <p class="text-sm text-gray-600 max-w-xs mx-auto">Marketplace digital para compra, venda e gestão transparente dos créditos.</p>
+                    </div>
+                    <div class="flex-shrink-0 text-4xl text-gray-300 font-light flex items-center justify-center h-full px-2">→</div>
+                    <div class="flex-none w-full md:w-auto p-2">
+                        <span class="text-6xl block">🏢</span>
+                        <h4 class="mt-2 text-lg font-semibold">Compradores Globais</h4>
+                        <p class="text-sm text-gray-600 max-w-xs mx-auto">Empresas acessam créditos de alta qualidade para suas metas ESG.</p>
+                    </div>
+                     <div class="flex-shrink-0 text-4xl text-gray-300 font-light flex items-center justify-center h-full px-2">→</div>
+                    <div class="flex-none w-full md:w-auto p-2">
+                        <span class="text-6xl block">🤝</span>
+                        <h4 class="mt-2 text-lg font-semibold">Impacto Real</h4>
+                        <p class="text-sm text-gray-600 max-w-xs mx-auto">Receita retorna aos projetos, gerando desenvolvimento e lucro social.</p>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="plataforma" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Uma Plataforma Completa</h2>
+                    <p class="mt-4 text-lg text-gray-600">Da transação à estratégia, oferecemos uma suíte completa de "e-consulting".</p>
+                </div>
+
+                <div>
+                    <div class="border-b border-gray-200 mb-8">
+                        <nav class="flex justify-center -mb-px space-x-6 md:space-x-8" aria-label="Tabs">
+                            <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm tab-active" data-tab="jornada">Jornada do Cliente</button>
+                            <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm tab-inactive" data-tab="features">Features</button>
+                            <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm tab-inactive" data-tab="impacto">Dashboard de Impacto</button>
+                        </nav>
+                    </div>
+
+                    <div id="tab-content">
+                        <div class="tab-pane active" id="jornada">
+                            <div class="flex justify-center items-stretch flex-wrap gap-6 text-center">
+                                <div class="border border-gray-200 bg-gray-50 rounded-xl p-6 flex-1 min-w-[220px] max-w-xs">
+                                    <span class="text-5xl">🧭</span>
+                                    <h4 class="mt-4 font-bold text-lg">1. Consultoria e Planejamento</h4>
+                                    <p class="mt-2 text-sm text-gray-600">Use nosso Hub de Inteligência e E-consulting para definir metas e estratégias de sustentabilidade.</p>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 rounded-xl p-6 flex-1 min-w-[220px] max-w-xs">
+                                    <span class="text-5xl">💳</span>
+                                    <h4 class="mt-4 font-bold text-lg">2. Compra Segura e Simplificada</h4>
+                                    <p class="mt-2 text-sm text-gray-600">Adquira créditos verificados em nosso Marketplace com total transparência e segurança.</p>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 rounded-xl p-6 flex-1 min-w-[220px] max-w-xs">
+                                    <span class="text-5xl">🔗</span>
+                                    <h4 class="mt-4 font-bold text-lg">3. Integração e Engajamento</h4>
+                                    <p class="mt-2 text-sm text-gray-600">Conecte o impacto positivo à sua marca e aos seus clientes, gerando valor reputacional.</p>
+                                </div>
+                                <div class="border border-gray-200 bg-gray-50 rounded-xl p-6 flex-1 min-w-[220px] max-w-xs">
+                                    <span class="text-5xl">📊</span>
+                                    <h4 class="mt-4 font-bold text-lg">4. Monitoramento e Relatórios</h4>
+                                    <p class="mt-2 text-sm text-gray-600">Acompanhe o lucro social e ambiental em tempo real através de um dashboard intuitivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane hidden" id="features">
+                             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                                <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Marketplace de Créditos</h4>
+                                    <p class="text-gray-600 mt-1">Interface para compra e venda de créditos verificados da nossa reserva na Amazônia.</p>
+                                </div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Planejamento de Emissões</h4>
+                                    <p class="text-gray-600 mt-1">Ferramentas para empresas planejarem suas metas de neutralidade e investimentos.</p>
+                                </div>
+                                <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Consultoria com IA Generativa</h4>
+                                    <p class="text-600 mt-1">Assistente virtual para tirar dúvidas, gerar relatórios e criar planos de ação personalizados.</p>
+                                </div>
+                                 <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Hub de Inteligência</h4>
+                                    <p class="text-gray-600 mt-1">Agregamos conteúdo e notícias de fontes confiáveis para manter nossos clientes informados.</p>
+                                </div>
+                                 <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Previsão de Investimentos</h4>
+                                    <p class="text-gray-600 mt-1">Análises para otimizar o investimento em sustentabilidade com base em dados de mercado.</p>
+                                </div>
+                                 <div class="p-6">
+                                    <h4 class="font-bold text-green-800">Dashboard de Impacto</h4>
+                                    <p class="text-gray-600 mt-1">Visualização em tempo real do impacto ambiental e social gerado, com fotos e dados.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane hidden" id="impacto">
+                            <div class="flex flex-col lg:flex-row items-center gap-12">
+                                <div class="lg:w-1/2">
+                                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Visualize o Impacto do seu Investimento</h3>
+                                    <p class="text-gray-600 mb-6">Acreditamos em transparência total. Nosso dashboard mostra exatamente para onde cada real investido é direcionado, transformando a compra de créditos de carbono em uma ação de impacto visível e mensurável. Este gráfico ilustra a distribuição típica dos recursos, garantindo que a maior parte do valor chegue a quem realmente importa: as comunidades locais e a floresta.</p>
+                                </div>
+                                <div class="lg:w-1/2 w-full max-w-md mx-auto chart-container h-80 md:h-96">
+                                    <canvas id="impactChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800">Nossos Diferenciais</h2>
+                    <p class="mt-4 text-lg text-gray-600">O que nos torna únicos no mercado.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                        <h4 class="text-5xl font-semibold text-green-700" id="credits-counter" data-target="6000000">0</h4>
+                        <p class="mt-2 font-semibold text-gray-700">Créditos de Carbono em Reserva</p>
+                        <p class="mt-1 text-sm text-gray-500">Ativo exclusivo na região de Aveiro (PA), a histórica Fordlândia.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                        <span class="text-5xl">🇧🇷</span>
+                        <p class="mt-2 font-semibold text-gray-700">Foco Estratégico no Brasil</p>
+                        <p class="mt-1 text-sm text-gray-500">Posicionados de forma única com o Brasil sendo a "bola da vez" do clima.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                        <span class="text-5xl">🌱</span>
+                        <p class="mt-2 font-semibold text-gray-700">Inclusão e Impacto Social</p>
+                        <p class="mt-1 text-sm text-gray-500">Nosso modelo fortalece pequenos produtores e desenvolve comunidades.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                        <span class="text-5xl">🏆</span>
+                        <p class="mt-2 font-semibold text-gray-700">Time de Alta Performance</p>
+                        <p class="mt-1 text-sm text-gray-500">Expertise global em economia verde, software e acesso a capital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-20 bg-green-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold">Faça Parte da Cura da Amazônia</h2>
+                <p class="mt-4 text-lg text-green-200 max-w-2xl mx-auto">Seja você um investidor, uma empresa com metas ESG ou um projeto na Amazônia, queremos conversar.</p>
+                <div class="mt-8">
+                    <a href="mailto:contato@greentech.com" class="bg-white text-green-800 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105">Entre em Contato</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 GreenTech. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">To Heal The Amazon Rainforest</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Close mobile menu on click
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Tabs functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('tab-inactive');
+                    });
+                    button.classList.add('tab-active');
+                    button.classList.remove('tab-inactive');
+
+                    tabPanes.forEach(pane => {
+                        if (pane.id === tabId) {
+                            pane.classList.remove('hidden');
+                            pane.classList.add('active');
+                        } else {
+                            pane.classList.add('hidden');
+                            pane.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Number counter animation
+            const counter = document.getElementById('credits-counter');
+            const target = +counter.getAttribute('data-target'); // target will be 6000000
+            let animated = false;
+            // Introduce a variable to hold the actual numerical count
+            let currentCount = 0; // Initialize with 0, as the element starts with 0
+
+            const updateCount = () => {
+                // Calculate the increment
+                const increment = target / 200;
+
+                if (currentCount < target) {
+                    // Add increment to the numerical count
+                    currentCount = Math.ceil(currentCount + increment);
+
+                    // Ensure we don't overshoot the target on the last step
+                    if (currentCount > target) {
+                        currentCount = target;
+                    }
+
+                    // Only format for display in the DOM
+                    counter.innerText = currentCount.toLocaleString('pt-BR');
+
+                    // Continue animation if target not reached
+                    if (currentCount < target) {
+                        setTimeout(updateCount, 10);
+                    } else {
+                        // Ensure the final value is exactly the target, formatted
+                        counter.innerText = target.toLocaleString('pt-BR');
+                    }
+                } else {
+                    // If already at or beyond target, ensure it shows the final value
+                    counter.innerText = target.toLocaleString('pt-BR');
+                }
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+                        // Initialize currentCount to 0 when starting the animation
+                        currentCount = 0;
+                        updateCount();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(counter);
+
+            // Chart.js Impact Chart
+            const ctx = document.getElementById('impactChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Comunidades Locais & Produtores', 'Conservação & Reflorestamento', 'Tecnologia & Operações', 'Pesquisa & Desenvolvimento'],
+                        datasets: [{
+                            label: 'Distribuição de Impacto',
+                            data: [55, 25, 15, 5],
+                            backgroundColor: [
+                                'rgba(22, 101, 52, 0.8)', // green-800
+                                'rgba(21, 128, 61, 0.8)', // green-700
+                                'rgba(22, 163, 74, 0.8)', // green-600
+                                'rgba(34, 197, 94, 0.8)' // green-500
+                            ],
+                            borderColor: [
+                                'rgba(22, 101, 52, 1)',
+                                'rgba(21, 128, 61, 1)',
+                                'rgba(22, 163, 74, 1)',
+                                'rgba(34, 197, 94, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
